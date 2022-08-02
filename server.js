@@ -21,10 +21,10 @@ app.get("/productos",(req, res)=>{
     res.render("index",{array: arrayProductos})
 })
 app.post("/productos", (req, res)=>{
-    const productoRecibido = req.body
-    const productoNuevo = {nombre: productoRecibido.title , precio: productoRecibido.price, foto: productoRecibido.thumbnail};
+    const {title, price, thumbnail} = req.body
+    const productoNuevo = {nombre: title , precio: price, foto: thumbnail};
     arrayProductos.push(productoNuevo)
-    res.render("index", {array: arrayProductos})
+    res.redirect("/")
 })
 
 const PORT = 8000

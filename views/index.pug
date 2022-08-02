@@ -4,10 +4,16 @@ html
         h1(style="text-align:center; color: #00378a")="LISTA DE PRODUCTOS"
 
         div(style="border: #00000059; background-color:rgb(253, 253, 155); margin:auto; padding:1em")
-            each val in values
-                ul(style="margin: 1.5em auto 1.5em auto; background-color:aquamarine; box-shadow: 0px 0px 10px #003cff; list-style-type: none; width: 15%; padding:10px") 
-                    li= val.nombre
-                    li= val.precio
-                    img(src=val.foto height="75px" alt="foto")
+            table(style="margin: 1.5em auto 1.5em auto; background-color:aquamarine; box-shadow: 0px 0px 10px #003cff; list-style-type: none; width: 15%; padding:10px")
+                thead
+                    th= "NOMBRE" 
+                    th="PRECIO"
+                    th="IMAGEN"
+                    each val in values.length ? values : ['There are no values']
+                        tbody
+                            td=val.nombre
+                            td=val.precio
+                            td
+                                img(src=val.foto height="75px" alt="foto")
 
-        button(style="margin: 3em auto 3em auto" onclick="window.location.href='/'")="IR A INCIO"
+        button(style="margin: 3em auto 3em auto" onclick="window.location.href='/'")="IR A INICIO"
